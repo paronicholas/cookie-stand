@@ -107,8 +107,8 @@ function tableTotalsCreator(){
 
   tableItem(trEl, setTdEl(), 'Totals:');
 
-  for(var j=0; j<16; j++){
-    tableItem(trEl, setTdEl(), j);
+  for(var j=0; j<15; j++){
+    tableEl(trEl, setTdEl(), j);
   }
 
   tableEl.appendChild(trEl);
