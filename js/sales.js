@@ -63,15 +63,14 @@ function setSalesResults(location, domManip){
   var total = 0;
 
   for(var i=location.openTime;i<=location.closeTime;i++){
-    var paddedHours = i.toString();
     var cookieAmount = location.salesArray[i-location.openTime];
+    var paddedHours = i.toString();
     paddedHours = paddedHours.padStart(2, '0');
     paddedHours = paddedHours.padEnd(4, '0');
 
     var message1 = paddedHours + ' : ' + cookieAmount + ' cookies';
-
     domManip.messageSetter(message1);
-    total += location.salesArray[i-location.openTime];
+    total += cookieAmount;
   }
   var message2 = 'Total: ' + total + ' cookies';
   domManip.messageSetter(message2);
