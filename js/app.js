@@ -130,7 +130,7 @@ function getSalesResults(location){
     var cookies = location.aveCookies();
     cookiesPerHour.push(cookies);
   }
-  return cookiesPerHour;
+  // return cookiesPerHour;/
 }
 
 function setSalesResults(location){
@@ -139,7 +139,7 @@ function setSalesResults(location){
   var sectionEl = document.createElement('section');
   var h2El = document.createElement('h2');
   var insideUlEl = document.createElement('ul');
-  var hours = firstAndPike.openTime;
+  var hours = location.openTime;
   var total = 0;
 
   h2El.textContent = location.name;
@@ -157,13 +157,12 @@ function setSalesResults(location){
     } else {
       tempHour += 'am';
     }
-    var message1 = tempHour + ': ' + firstAndPike.salesArray[i] + ' cookies';
+    var message1 = tempHour + ': ' + location.salesArray[i] + ' cookies';
     var hoursLiEl = document.createElement('li');
     hoursLiEl.textContent = message1;
     insideUlEl.appendChild(hoursLiEl);
     salesContainer.appendChild(liEl);
-    total += firstAndPike.salesArray[i];
-    console.log(total);
+    total += location.salesArray[i];
     hours++;
   }
   var message2 = 'Total: ' + total + 'cookies';
@@ -183,4 +182,3 @@ getSalesResults(capitolHill);
 setSalesResults(capitolHill);
 getSalesResults(alki);
 setSalesResults(alki);
-
