@@ -57,16 +57,19 @@ function getSalesResults(location){
 }
 
 function setSalesResults(location, domManip){
-  getSalesResults(location);
+  getSalesResults(location); // set cookies sales into StoreCaller.salesArray
   domManip.htmlSetter(location);
 
   var total = 0;
 
   for(var i=location.openTime;i<=location.closeTime;i++){
     var paddedHours = i.toString();
+    var cookieAmount = location.salesArray[i-location.openTime];
     paddedHours = paddedHours.padStart(2, '0');
     paddedHours = paddedHours.padEnd(4, '0');
-    var message1 = paddedHours + ' : ' + location.salesArray[i-location.openTime] + ' cookies';
+
+    var message1 = paddedHours + ' : ' + cookieAmount + ' cookies';
+
     domManip.messageSetter(message1);
     total += location.salesArray[i-location.openTime];
   }
@@ -75,23 +78,19 @@ function setSalesResults(location, domManip){
 }
 
 function startApp(){
-  var firstAndPike = new StoreCaller('1st and Pike', 23, 65, 6.3);
-  var seaTacAirport = new StoreCaller('Seatac Airport', 3, 24, 1.2);
-  var seattleCenter = new StoreCaller('Seattle Center', 11, 38, 3.7);
-  var capitolHill = new StoreCaller('Capitol Hill', 20, 38, 2.3);
-  var alki = new StoreCaller('Alki', 2, 16, 4.6);
+  var allStoreArray = [];
+  var domStarterArray = [];
 
-  var fAndPDom = new DomManipulator();
-  var seaTacDom = new DomManipulator();
-  var seattleDom = new DomManipulator();
-  var capitolDom = new DomManipulator();
-  var alkiDom = new DomManipulator();
+  allStoreArray.push(new StoreCaller('1st and Pike', 23, 65, 6.3));
+  allStoreArray.push(new StoreCaller('Seatac Airport', 3, 24, 1.2));
+  allStoreArray.push(new StoreCaller('Seattle Center', 11, 38, 3.7));
+  allStoreArray.push(new StoreCaller('Capitol Hill', 20, 38, 2.3));
+  allStoreArray.push(new StoreCaller('Alki', 2, 16, 4.6));
 
-  setSalesResults(firstAndPike, fAndPDom);
-  setSalesResults(seaTacAirport, seaTacDom);
-  setSalesResults(seattleCenter, seattleDom);
-  setSalesResults(capitolHill, capitolDom);
-  setSalesResults(alki, alkiDom);
+  for(var i=0; i<allStoreArray.length; i++){
+    domStarterArray.push(new DomManipulator());
+    setSalesResults(allStoreArray[i],domStarterArray[i]);
+  }
 }
 
 // Initialize app
