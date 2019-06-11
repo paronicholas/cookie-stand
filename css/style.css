@@ -12,12 +12,15 @@ p {
 
 * {
   box-sizing: border-box;
-  outline: dotted red 1px;
+  /* outline: dotted red 1px; */
 }
 
 header {
   background-color: #201d57;
+  width: 100%;
   height: 140px;
+  color: silver;
+  padding: 10px 10px;
 }
 
 nav {
@@ -28,7 +31,14 @@ nav li {
   float: left;
   height: 60px;
   margin-right: 20px;
-  background-color: gold;
+}
+
+a {
+  color: silver;
+}
+
+body {
+  background-color: black;
 }
 
 main ul {
@@ -42,8 +52,19 @@ main ul {
 #sales-container > li {
   float: left;
   width: 200px;
+  color: silver;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 ul {
   list-style: none;
+}
+
+#salmon-pic {
+  margin: auto;
+  display: block;
+  width: 50%;
+  padding: 10px 10px;
 }
