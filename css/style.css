@@ -45,7 +45,6 @@ body {
 main {
   margin-top: 130px;
   margin-bottom: 100px;
-  outline: solid salmon 1px;
   display: block;
   text-align: center;
   overflow: hidden;
@@ -102,6 +101,10 @@ HOME PAGE STYLING
 /*
 SALES PAGE STYLING
 */
+#sales-main {
+  outline: solid salmon 1px;
+}
+
 #sales-container > tr {
   width: 100%;
   color: silver;
