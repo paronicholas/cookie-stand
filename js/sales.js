@@ -8,6 +8,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 // Global Variabls
 var hoursOpenArray = [];
+var totalsPerHour = [];
 
 // Constructors for the Stores
 function StoreCaller(name, minCust, maxCust, avgCust) {
@@ -50,7 +51,21 @@ function setSalesResults(location){
   }
 }
 
-// DOM Manipulation
+function setTotalPerHour(totalInOneHour){
+  var randomArray = [];
+  randomArray = totalInOneHour;
+  return randomArray;
+}
+
+function sum(totals, incrementer){
+  var perHour = 0;
+  for(var i=0;i<5;i++){
+    perHour += totals[i][incrementer];
+  }
+  return perHour;
+}
+
+// DOM Manipulation Functions
 var setTableEl = function(){
   var tableEl = document.getElementById('sales-container');
   return tableEl;
@@ -106,12 +121,18 @@ function tableTotalsCreator(){
 
   tableItem(trEl, setTdEl(), 'Totals:');
 
-  for(var j=0; j<16; j++){
-    tableItem(trEl, setTdEl(), 0);
+  var totalSum = 0;
+  for(var j=0; j<15; j++){
+    tableItem(trEl, setTdEl(), sum(totalsPerHour,j));
+    totalSum += sum(totalsPerHour,j);
   }
 
+  tableItem(trEl, setTdEl(), totalSum);
   tableEl.appendChild(trEl);
 }
+
+
+
 
 // App initialization
 function startApp(){
@@ -128,6 +149,7 @@ function startApp(){
   for(var i=0; i<allStoreArray.length; i++){
     setSalesResults(allStoreArray[i]);
     tableBodyCreator(allStoreArray[i]);
+    totalsPerHour[i] = setTotalPerHour(allStoreArray[i].salesArray);
   }
   tableTotalsCreator();
 }
