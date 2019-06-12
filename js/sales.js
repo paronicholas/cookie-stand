@@ -59,7 +59,7 @@ function setTotalPerHour(totalInOneHour){
 
 function sum(totals, incrementer){
   var perHour = 0;
-  for(var i=0;i<5;i++){
+  for(var i=0;i<totals.length;i++){
     perHour += totals[i][incrementer];
   }
   return perHour;
@@ -146,7 +146,7 @@ function startApp(){
   for(var i=0; i<allStoreArray.length; i++){
     setSalesResults(allStoreArray[i]);
     tableBodyCreator(allStoreArray[i]);
-    totalsPerHour[i] = setTotalPerHour(allStoreArray[i].salesArray);
+    totalsPerHour[i] = setTotalPerHour(allStoreArray[i].salesArray); // adds salesArray for each store as an array into totalsPerHour array
   }
   tableTotalsCreator();
 }
