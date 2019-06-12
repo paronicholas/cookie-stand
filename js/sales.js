@@ -131,9 +131,6 @@ function tableTotalsCreator(){
   tableEl.appendChild(trEl);
 }
 
-
-
-
 // App initialization
 function startApp(){
   var allStoreArray = [];
