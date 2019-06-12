@@ -48,7 +48,6 @@ function setSalesResults(location){
     cookiesPerHour.push(cookies);
     location.totalPerHour += cookies;
   }
-  console.log(location.totalPerHour);
 }
 
 // DOM Manipulation
@@ -108,7 +107,7 @@ function tableTotalsCreator(){
   tableItem(trEl, setTdEl(), 'Totals:');
 
   for(var j=0; j<16; j++){
-    tableItem(trEl, setTdEl(), j);
+    tableItem(trEl, setTdEl(), 0);
   }
 
   tableEl.appendChild(trEl);
@@ -127,7 +126,6 @@ function startApp(){
   hoursOpen();
   tableTitleBar(hoursOpenArray);
   for(var i=0; i<allStoreArray.length; i++){
-    // domStarterArray.push(new DomManipulator());
     setSalesResults(allStoreArray[i]);
     tableBodyCreator(allStoreArray[i]);
   }
