@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://127.0.0.1:8080/pages/sales.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Salmon Stand - Sales</title>
+    <link rel="stylesheet" href="./Salmon Stand - Sales_files/style.css" type="text/css">
+  </head>
+
+  <body>
+    <header>
+      <h1>Pat's Salmon Cookies - Sales</h1>
+      <nav>
+        <ul>
+          <li><a href="http://127.0.0.1:8080/">Home</a></li>
+          <li><a href="http://127.0.0.1:8080/pages/sales.html">Sales</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <table id="sales-container"><tr><td>Store</td><td>0600</td><td>0700</td><td>0800</td><td>0900</td><td>1000</td><td>1100</td><td>1200</td><td>1300</td><td>1400</td><td>1500</td><td>1600</td><td>1700</td><td>1800</td><td>1900</td><td>2000</td><td>Daily Location Total</td></tr><tr><td>1st and Pike</td><td>245</td><td>409</td><td>195</td><td>258</td><td>258</td><td>340</td><td>308</td><td>302</td><td>201</td><td>207</td><td>195</td><td>207</td><td>170</td><td>365</td><td>359</td><td>4019</td></tr><tr><td>Seatac Airport</td><td>4</td><td>18</td><td>4</td><td>19</td><td>18</td><td>3</td><td>6</td><td>18</td><td>18</td><td>9</td><td>18</td><td>16</td><td>16</td><td>25</td><td>6</td><td>198</td></tr><tr><td>Seattle Center</td><td>48</td><td>48</td><td>96</td><td>55</td><td>133</td><td>107</td><td>107</td><td>85</td><td>40</td><td>114</td><td>74</td><td>51</td><td>118</td><td>77</td><td>51</td><td>1204</td></tr><tr><td>Capitol Hill</td><td>71</td><td>46</td><td>80</td><td>59</td><td>62</td><td>73</td><td>46</td><td>66</td><td>46</td><td>80</td><td>75</td><td>66</td><td>73</td><td>75</td><td>46</td><td>964</td></tr><tr><td>Alki</td><td>13</td><td>9</td><td>69</td><td>64</td><td>41</td><td>32</td><td>41</td><td>13</td><td>36</td><td>69</td><td>41</td><td>64</td><td>32</td><td>32</td><td>36</td><td>592</td></tr></table>
+    </main>
+
+    <footer>
+        <p>Created by Nicholas Paro</p>
+      </footer>
+    <script src="./Salmon Stand - Sales_files/sales.js"></script>
+  <!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+
+
+</body></html>

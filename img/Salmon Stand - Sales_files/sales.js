@@ -8,7 +8,6 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 // Global Variabls
 var hoursOpenArray = [];
-var totalsPerHour = [];
 
 // Constructors for the Stores
 function StoreCaller(name, minCust, maxCust, avgCust) {
@@ -49,23 +48,10 @@ function setSalesResults(location){
     cookiesPerHour.push(cookies);
     location.totalPerHour += cookies;
   }
+  console.log(location.totalPerHour);
 }
 
-function setTotalPerHour(totalInOneHour){
-  var randomArray = [];
-  randomArray = totalInOneHour;
-  return randomArray;
-}
-
-function sum(totals, incrementer){
-  var perHour = 0;
-  for(var i=0;i<5;i++){
-    perHour += totals[i][incrementer];
-  }
-  return perHour;
-}
-
-// DOM Manipulation Functions
+// DOM Manipulation
 var setTableEl = function(){
   var tableEl = document.getElementById('sales-container');
   return tableEl;
@@ -121,18 +107,12 @@ function tableTotalsCreator(){
 
   tableItem(trEl, setTdEl(), 'Totals:');
 
-  var totalSum = 0;
   for(var j=0; j<15; j++){
-    tableItem(trEl, setTdEl(), sum(totalsPerHour,j));
-    totalSum += sum(totalsPerHour,j);
+    tableEl(trEl, setTdEl(), j);
   }
 
-  tableItem(trEl, setTdEl(), totalSum);
   tableEl.appendChild(trEl);
 }
-
-
-
 
 // App initialization
 function startApp(){
@@ -147,9 +127,9 @@ function startApp(){
   hoursOpen();
   tableTitleBar(hoursOpenArray);
   for(var i=0; i<allStoreArray.length; i++){
+    // domStarterArray.push(new DomManipulator());
     setSalesResults(allStoreArray[i]);
     tableBodyCreator(allStoreArray[i]);
-    totalsPerHour[i] = setTotalPerHour(allStoreArray[i].salesArray);
   }
   tableTotalsCreator();
 }
