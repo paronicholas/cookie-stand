@@ -143,6 +143,8 @@ function startApp(name, min, max, avg){
   allStoreArray.push(new StoreCaller('Seattle Center', 11, 38, 3.7));
   allStoreArray.push(new StoreCaller('Capitol Hill', 20, 38, 2.3));
   allStoreArray.push(new StoreCaller('Alki', 2, 16, 4.6));
+  // allStoreArray.push(new StoreCaller(name, min, max, avg));
+
 
   allStoreArray.push(new StoreCaller(name, min, max, avg));
 
