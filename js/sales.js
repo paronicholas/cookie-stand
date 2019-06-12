@@ -66,25 +66,25 @@ function sum(totals, incrementer){
 }
 
 // DOM Manipulation Functions
-var setTableEl = function(){
+function setTableEl(){
   var tableEl = document.getElementById('sales-container');
   return tableEl;
-};
+}
 
-var setTrEl = function(){
+function setTrEl(){
   var trEl = document.createElement('tr');
   return trEl;
-};
+}
 
-var setTdEl = function(){
+function setTdEl(){
   var tdEl = document.createElement('td');
   return tdEl;
-};
+}
 
-var tableItem = function(trEl, tdEl, item){
+function tableItem(trEl, tdEl, item){
   tdEl.textContent = item;
   return trEl.appendChild(tdEl);
-};
+}
 
 function tableTitleBar(openHours){
   var tableEl = setTableEl();

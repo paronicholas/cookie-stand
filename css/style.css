@@ -26,12 +26,14 @@ nav {
 
 nav li {
   float: left;
+  text-align: center;
   height: 40px;
   margin-right: 20px;
 }
 
 a {
   color: silver;
+  text-decoration: none;
 }
 
 
@@ -61,6 +63,15 @@ main table {
   color: silver;
 }
 
+main section {
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  padding: 0;
+  margin: auto;
+  color: silver;
+}
+
 
 /*
 FOOTER STYLING
@@ -71,7 +82,8 @@ footer {
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  text-align: center;
+  text-align: right;
+  padding: 10px;
   font-family: monospace, sans-serif;
   font: bold;
   color: silver;
@@ -90,6 +102,20 @@ ul {
 /*
 HOME PAGE STYLING
 */
+
+#section-container {
+  color: silver;
+}
+
+#section-container > ul {
+  float: left;
+  width: 50%;
+  color: silver;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 #salmon-pic {
   margin: auto;
   display: block;
