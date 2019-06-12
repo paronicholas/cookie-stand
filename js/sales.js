@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 /*
 References:
 1. Min/Max inclusive random number generator:
@@ -132,14 +134,17 @@ function tableTotalsCreator(){
 }
 
 // App initialization
-function startApp(){
+function startApp(name, min, max, avg){
   var allStoreArray = [];
 
+  
   allStoreArray.push(new StoreCaller('1st and Pike', 23, 65, 6.3));
   allStoreArray.push(new StoreCaller('Seatac Airport', 3, 24, 1.2));
   allStoreArray.push(new StoreCaller('Seattle Center', 11, 38, 3.7));
   allStoreArray.push(new StoreCaller('Capitol Hill', 20, 38, 2.3));
   allStoreArray.push(new StoreCaller('Alki', 2, 16, 4.6));
+
+  allStoreArray.push(new StoreCaller(name, min, max, avg));
 
   hoursOpen();
   tableTitleBar(hoursOpenArray);
@@ -151,4 +156,4 @@ function startApp(){
   tableTotalsCreator();
 }
 
-startApp();
+// startApp();
