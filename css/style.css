@@ -73,8 +73,12 @@ main section {
 }
 
 main form {
+  width: 100%;
+  float: left;
+  overflow: hidden;
+  padding: 0;
+  margin: auto;
   color: silver;
-
 }
 
 
@@ -114,7 +118,7 @@ HOME PAGE STYLING
 
 #section-container > ul {
   float: left;
-  width: 50%;
+  width: 100%;
   color: silver;
   white-space: nowrap;
   overflow: hidden;
@@ -132,14 +136,21 @@ HOME PAGE STYLING
 /*
 SALES PAGE STYLING
 */
-#sales-main {
-  outline: solid salmon 1px;
-}
 
 #sales-container > tr {
+  outline: solid salmon 1px;
   width: 100%;
   color: silver;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+#store-adder {
+  /* outline: solid salmon 1px; */
+  width: 100%;
+  color: silver;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: left;
 }
