@@ -39,6 +39,7 @@ function h2Item(ulEl, liEl, h2El, text){
   return ulEl.appendChild(liEl);
 }
 
+// function creates the list and appends it to the section element
 function listCreator(insertItem, numLiItems, h2Name){
   var sectionEl = setSectionEl();
   var ulEl = setUlEl();
@@ -54,8 +55,10 @@ function listCreator(insertItem, numLiItems, h2Name){
   sectionEl.appendChild(ulEl);
 }
 
+/*
+APP INITIALIZER
+*/
 function appInitializer(){
-  // listCreator(companyInfo.storeLoc, companyInfo.storeLoc.length, 'Store Locations');
   listCreator(companyInfo.storeHours, companyInfo.storeHours.length, 'Hours of Operation');
 }
 

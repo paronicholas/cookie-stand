@@ -14,7 +14,9 @@ var itemsForStore = ['Store Name: ', 'Minimum Customers: ', 'Maximum Customers: 
 var itemIds = ['newStore', 'minCust', 'maxCust', 'avgCook'];
 
 
-// Constructors for the Stores
+/*
+STORE CONSTRUCTOR
+*/
 function StoreCaller(name, minCust, maxCust, avgCust) {
   this.name = name;
   this.minCust = minCust;
@@ -25,9 +27,7 @@ function StoreCaller(name, minCust, maxCust, avgCust) {
   this.salesArray = [];
   this.totalPerHour = 0;
   this.randomCust = function(){
-    var min = Math.ceil(this.minCust);
-    var max = Math.floor(this.maxCust);
-    var randomNumCust = Math.floor(Math.random() * (max-min+1)) + min;
+    var randomNumCust = Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
     return randomNumCust;
   };
   this.avgCookies = function(){
@@ -36,7 +36,9 @@ function StoreCaller(name, minCust, maxCust, avgCust) {
   };
 }
 
-// Functions
+/*
+FUNCTIONS
+*/
 function hoursOpen(){
   for(var i=6; i<21; i++){
     var paddedHours = i.toString();
@@ -61,7 +63,7 @@ function setTotalPerHour(totalInOneHour){
   return randomArray;
 }
 
-function sum(totals, incrementer){
+function hourlyTotalSum(totals, incrementer){
   var perHour = 0;
   for(var i=0;i<totals.length;i++){
     perHour += totals[i][incrementer];
@@ -72,7 +74,7 @@ function sum(totals, incrementer){
 /*
 DOM Manipulation Functions
 */
-
+// set HTML elements
 function setTableEl(){
   var tableEl = document.getElementById('sales-container');
   return tableEl;
@@ -86,56 +88,6 @@ function setTrEl(){
 function setTdEl(){
   var tdEl = document.createElement('td');
   return tdEl;
-}
-
-function tableItem(trEl, tdEl, item){
-  tdEl.textContent = item;
-  return trEl.appendChild(tdEl);
-}
-
-function tableTitleBar(openHours){
-  var tableEl = setTableEl();
-  var trEl = setTrEl();
-
-  tableItem(trEl, setTdEl(), 'Store');
-
-  for(var i =0; i< openHours.length; i++){
-    tableItem(trEl, setTdEl(), openHours[i]);
-  }
-
-  tableItem(trEl, setTdEl(), 'Daily Location Total');
-  tableEl.appendChild(trEl);
-}
-
-function tableBodyCreator(location){
-  var tableEl = setTableEl();
-  var trEl = setTrEl();
-
-  tableItem(trEl, setTdEl(), location.name);
-
-  for(var i=0; i<location.salesArray.length; i++){
-    tableItem(trEl, setTdEl(), location.salesArray[i]);
-  }
-
-  tableItem(trEl, setTdEl(), location.totalPerHour);
-  tableEl.appendChild(trEl);
-
-}
-
-function tableTotalsCreator(){
-  var tableEl = setTableEl();
-  var trEl = setTrEl();
-
-  tableItem(trEl, setTdEl(), 'Totals:');
-
-  var totalSum = 0;
-  for(var j=0; j<15; j++){
-    tableItem(trEl, setTdEl(), sum(totalsPerHour,j));
-    totalSum += sum(totalsPerHour,j);
-  }
-
-  tableItem(trEl, setTdEl(), totalSum);
-  tableEl.appendChild(trEl);
 }
 
 function setFormEl() {
@@ -173,6 +125,12 @@ function setBrEl() {
   return brEl;
 }
 
+// Item builders to set textContent
+function tableItem(trEl, tdEl, item){
+  tdEl.textContent = item;
+  return trEl.appendChild(tdEl);
+}
+
 function legendItem(fieldSetEl, legendEl, item){
   legendEl.textContent = item;
   return fieldSetEl.appendChild(legendEl);
@@ -199,6 +157,52 @@ function brItem(fieldSetEl, brEl){
   return fieldSetEl.appendChild(brEl);
 }
 
+// Builders/Creators
+function tableTitleBar(openHours){
+  var tableEl = setTableEl();
+  var trEl = setTrEl();
+
+  tableItem(trEl, setTdEl(), 'Store');
+
+  for(var i =0; i< openHours.length; i++){
+    tableItem(trEl, setTdEl(), openHours[i]);
+  }
+
+  tableItem(trEl, setTdEl(), 'Daily Location Total');
+  tableEl.appendChild(trEl);
+}
+
+function tableBodyCreator(location){
+  var tableEl = setTableEl();
+  var trEl = setTrEl();
+
+  tableItem(trEl, setTdEl(), location.name);
+
+  for(var i=0; i<location.salesArray.length; i++){
+    tableItem(trEl, setTdEl(), location.salesArray[i]);
+  }
+
+  tableItem(trEl, setTdEl(), location.totalPerHour);
+  tableEl.appendChild(trEl);
+
+}
+
+function tableTotalsCreator(){
+  var tableEl = setTableEl();
+  var trEl = setTrEl();
+
+  tableItem(trEl, setTdEl(), 'Totals:');
+
+  var totalSum = 0;
+  for(var j=0; j<15; j++){
+    tableItem(trEl, setTdEl(), hourlyTotalSum(totalsPerHour,j));
+    totalSum += hourlyTotalSum(totalsPerHour,j);
+  }
+
+  tableItem(trEl, setTdEl(), totalSum);
+  tableEl.appendChild(trEl);
+}
+
 function formCreator(items) {
   var formEl = setFormEl();
   var fieldSetEl = setFieldsetEl();
@@ -219,20 +223,23 @@ function formCreator(items) {
     var min = e.target.minCust.value;
     var max = e.target.maxCust.value;
     var avg = e.target.avgCook.value;
-    var apple = new StoreCaller(name, min, max, avg);
-    console.log(apple);
-    allStoreArray.push(apple);
+    var newStore = new StoreCaller(name, min, max, avg);
+    console.log(newStore);
+    allStoreArray.push(newStore);
     document.getElementById('sales-container').innerHTML = '';
     tableBuilder();
   });
 }
 
-function tableBuilder(){
+// Combines the table building elements to build and render the table
+// with data inserted added for store hours. Allows for resetting the
+// table data everytime a new form is submitted.
+function tableRender(){
   tableTitleBar(hoursOpenArray);
 
   for(var i=0; i<allStoreArray.length; i++){
     if(allStoreArray.length > 5){
-      allStoreArray[i].salesArray = [];
+      allStoreArray[i].salesArray = []; // reset the salesArray to empty when adding a new store
     }
     setSalesResults(allStoreArray[i]);
     tableBodyCreator(allStoreArray[i]);
@@ -241,7 +248,9 @@ function tableBuilder(){
   tableTotalsCreator();
 }
 
-// App initialization
+/*
+APP INITIALIZER
+*/
 function startApp(){
   formCreator(itemsForStore);
   allStoreArray.push(new StoreCaller('1st and Pike', 23, 65, 6.3));
@@ -251,7 +260,7 @@ function startApp(){
   allStoreArray.push(new StoreCaller('Alki', 2, 16, 4.6));
 
   hoursOpen();
-  tableBuilder();
+  tableRender();
 }
 
 startApp();
