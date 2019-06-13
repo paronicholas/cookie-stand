@@ -227,7 +227,7 @@ function formCreator(items) {
     console.log(newStore);
     allStoreArray.push(newStore);
     document.getElementById('sales-container').innerHTML = '';
-    tableBuilder();
+    tableRender();
   });
 }
 

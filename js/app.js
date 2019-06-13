@@ -1,7 +1,7 @@
 'use strict';
 
 var companyInfo = {
-  storeHours : ['Open Time: 0600 (6am)', 'Close Time: 2000 (8am)']
+  storeHours : ['Open Time: 0600 (6am)', 'Close Time: 2000 (8pm)']
 };
 
 /*
