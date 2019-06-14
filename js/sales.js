@@ -228,6 +228,7 @@ function formCreator(items) {
     allStoreArray.push(newStore);
     document.getElementById('sales-container').innerHTML = '';
     tableRender();
+    setFormEl().reset();
   });
 }
 

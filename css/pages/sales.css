@@ -1,0 +1,54 @@
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-bottom: 15px;
+  color: silver;
+}
+
+h2 > img {
+  height: 20px;
+}
+
+div {
+  width: 960px;
+  height: 400px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+div > table {
+  overflow: hidden;
+  width: 960px;
+  text-align: center;
+}
+
+table > tr {
+  outline: solid salmon 1px;
+  color: silver;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+main > form {
+  margin-bottom: 30px;
+  width: 960px;
+  height: 400px;
+  color: silver;
+}
+
+form > fieldset {
+  border: solid salmon 2px;
+  padding-left: 20px;
+}
+
+fieldset > legend {
+  padding-bottom: 10px;
+}
+
+fieldset > label:first-child {
+  margin-top: 20px;
+}
+
+fieldset > button {
+  margin-bottom: 10px;
+}
