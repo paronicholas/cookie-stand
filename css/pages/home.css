@@ -1,0 +1,58 @@
+main > img:first-child {
+  margin-bottom: 30px;
+  overflow: hidden;
+  width: 960px;
+}
+
+main > article {
+  margin-bottom: 30px;
+}
+main > article > section:nth-child(3n +2 ) {
+  margin: 0 30px;
+}
+
+section {
+  position: relative;
+  height: 400px;
+  float: left;
+}
+
+article > section > ul {
+  width: 300px;
+  height: 400px;
+  color: silver;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main > li > img {
+  width: 300px;
+}
+
+li > p {
+  text-align: center;
+  color: silver;
+  font-size: 1em;
+  padding-top: 5px;
+}
+
+section > ul > li:nth-child(2) {
+  font-size: 1em;
+  padding-bottom: 15px;
+}
+
+section > ul > li {
+  font-size: 1em;
+  padding-bottom: 10px;
+}
+
+li > img {
+  width: 300px;
+}
+
+#famiyl > p {
+  text-align: center;
+  color: silver;
+  font-size: 1em;
+  padding-top: 5px;
+}

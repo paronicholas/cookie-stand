@@ -1,0 +1,23 @@
+main {
+  height: 800px;
+}
+
+main > ul > li {
+  float: left;
+  margin-bottom: 30px;
+}
+
+main > ul > li:nth-child(3n +2 ) {
+  margin: 0 30px;
+}
+
+li > img {
+  width: 300px;
+}
+
+li > p {
+  text-align: center;
+  color: silver;
+  font-size: 1em;
+  padding-top: 5px;
+}
