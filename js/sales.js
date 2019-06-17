@@ -223,12 +223,16 @@ function formCreator(items) {
     var min = e.target.minCust.value;
     var max = e.target.maxCust.value;
     var avg = e.target.avgCook.value;
-    var newStore = new StoreCaller(name, min, max, avg);
-    console.log(newStore);
-    allStoreArray.push(newStore);
-    document.getElementById('sales-container').innerHTML = '';
-    tableRender();
-    setFormEl().reset();
+    if(!isNaN(min) || !isNaN(max) || !isNaN(avg)){
+      setFormEl().reset();
+    } else{
+      var newStore = new StoreCaller(name, min, max, avg);
+      console.log(newStore);
+      allStoreArray.push(newStore);
+      document.getElementById('sales-container').innerHTML = '';
+      tableRender();
+      setFormEl().reset();
+    }
   });
 }
 
