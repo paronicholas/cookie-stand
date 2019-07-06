@@ -1,6 +1,6 @@
-@import url("/css/pages/home.css");
-@import url("/css/pages/sales.css");
-@import url("/css/pages/merchandise.css");
+@import url("css/pages/home.css");
+@import url("css/pages/sales.css");
+@import url("css/pages/merchandise.css");
 
 /*
 REFERENCES:
@@ -17,8 +17,8 @@ ul {
 /* FONTS */
 @font-face {
   font-family: 'beauty_mountains_personal_uRg';
-  src: url('/css/fonts/beauty_mountains_personal_use-webfont.woff2') format('woff2'),
-       url('/css/fonts/beauty_mountains_personal_use-webfont.woff') format('woff');
+  src: url('css/fonts/beauty_mountains_personal_use-webfont.woff2') format('woff2'),
+       url('css/fonts/beauty_mountains_personal_use-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
